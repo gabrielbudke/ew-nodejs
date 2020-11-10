@@ -14,8 +14,8 @@ function obterUsuario() {
       setTimeout(() => {
          return resolve({
             id: 1,
-            nome: 'Gabriel Sousa',
-            dataNascimento: new Date('1998-12-11')
+            nome: 'Fulano da Silva',
+            dataNascimento: new Date('1957-06-27')
          });
       }, 1000);
    });
