@@ -51,17 +51,13 @@ async function main() {
    try {
       const usuario = await obterUsuario();
 
+      // Executa várias Promises e retorna um array com as informações
       const data = await Promise.all([
          obterTelefone(usuario.id),
          obterEnderecoAsync(usuario.id)
       ]);
 
       const [ telefone, endereco ] = data;
-
-      console.log('[usuario]', usuario);
-      console.log('[telefone]', telefone);
-      console.log('[endereco]', endereco);
-
       console.log('[usuario]', { ...usuario, ...telefone, ...endereco });
       
    } catch (error) {
