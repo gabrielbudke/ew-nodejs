@@ -29,7 +29,7 @@ async function main() {
       const names = response.results.meuMap(function(personagem, indice) {
          return `[${indice}]${personagem.name}`;
       });
-      
+
       console.log('[names]', names);
 
    } catch (error) {

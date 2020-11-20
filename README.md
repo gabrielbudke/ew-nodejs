@@ -15,3 +15,18 @@
 
   <img alt="Github language count" src="https://img.shields.io/github/languages/count/gabrielbudke/ew-nodejs?color=539E43&style=flat-square">
 </p>
+
+<p align="center">
+   <a href="#pushpin-info">Info</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#open_file_folder-conteudos">Módulos</a>  
+</p>
+
+## Info
+
+Esse repositório é destinado ao curso Imersão em Desenvolvimento de API ministrado pelo Erick Wendel.
+
+## Módulos
+
+- [1° Módulo - Sincronia de Funçoes]()
+- [2° Módulo - Manipulação de Listas]()
+- [3° Módulo - Introdução a Desenvolvimento de Testes Automatizados]()

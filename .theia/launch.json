@@ -7,7 +7,8 @@
         "type": "node",
         "request": "launch",
         "name": "Launch Program",
-        "program": "${workspaceFolder}/modulo-01/index.js",
+        "program": "${workspaceFolder}/modulo-02/manipulacao-de-lista/4.reduce.js",
+        
         "openDebug": "openOnDebugBreak",
         "internalConsoleOptions": "openOnSessionStart"
      }
