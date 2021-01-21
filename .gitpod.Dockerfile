@@ -3,7 +3,7 @@ FROM gitpod/workspace-full
 USER gitpod
 
 # Install custom tools, runtimes, etc.
-RUN npm install -g mocha
+# RUN npm install -g mocha
 # RUN sudo apt-get update && \
 #     sudo apt-get install -y zsh
 
