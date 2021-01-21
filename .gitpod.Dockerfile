@@ -1,8 +1,9 @@
-# FROM gitpod/workspace-full
+FROM gitpod/workspace-full
 
-# USER gitpod
+USER gitpod
 
 # Install custom tools, runtimes, etc.
+RUN npm install -g mocha
 # RUN sudo apt-get update && \
 #     sudo apt-get install -y zsh
 
