@@ -2,7 +2,7 @@ class Heroi {
    constructor({ id, nome, poder }) {
       this.id = id;
       this.nome = nome;
-      this.poder = poder;
+      this.poder = poder;                               
    }
 }
 
