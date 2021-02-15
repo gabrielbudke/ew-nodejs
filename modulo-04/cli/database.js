@@ -31,12 +31,12 @@ class Database {
    async cadastrar(hero) {
       // Objetivo: obter o arquivo modificar os dados e reescrever o arquivo
       const data = await this.obterDadosArquivos();
-      const id = hero.id <= 2 ? hero.id : Date.now();
-
+      const id = hero.id <= 2 ? hero.id : Date.now();            
+      
       const heroWithId = {
          id,
          ...hero
-      };
+      };    
 
       const newData = [
          ...data,
