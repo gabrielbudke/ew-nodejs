@@ -5,7 +5,7 @@
 </div>
 
 <h3 align="center">
-  Curso by Erick Wendel
+  Curso ministrador por Erick Wendel
 </h3>
 
 <p align="center" >    
