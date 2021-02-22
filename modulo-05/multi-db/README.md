@@ -31,4 +31,39 @@
 
 ```
 
+### Configurando o Adminer como interface para o Postgres
 
+```
+   docker run \
+      --name adminer \
+      -p 8080:8080
+      --link postgres:postgres \
+      -d \
+      adminer
+
+```
+
+## :gear: Configurando o MongoDB no Docker
+
+```
+   docker run \
+      --name mongodb \
+      -p 27017:27017
+      -e MONGO_INITDB_ROOT_USERNAME=admin \
+      -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin \
+      -d \
+      mongo:4
+
+```
+
+### Configurando um client para o MongoDB
+
+```
+   docker run \
+      --name mongoclient \
+      -p 3000:3000
+      --link mongodb:mongodb \
+      -d \
+      mongoclient/mongoclient
+
+```
