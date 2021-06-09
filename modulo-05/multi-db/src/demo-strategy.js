@@ -1,59 +1,62 @@
+/**
+ * Arquivo para demonstração do conceito do 
+ * design pattern Strategy
+ */
+
+// Cria uma classe de Erro customizada para quando 
+// um método não for implementado 
 class NotImplementedException extends Error {
    constructor() {
-      super('Not Implemented Exception');
+      super('Not implemented exception')
    }
 }
 
+// Cria a interface/classe para Strategy
 class ICrud {
    create(item) {
       throw new NotImplementedException();
    }
 
-   read(query) {
-      throw new NotImplementedException();
-   }
-
-   update(id, item) {
-      throw new NotImplementedException();
-   }
-
-   delete(id) {
+   update(id) {
       throw new NotImplementedException();
    }
 }
 
-class MongoDB extends ICrud {
+// Classe de estratégia para MongoDB
+class Mongo extends ICrud {
    constructor() {
       super();
    }
 
    create(item) {
-      console.log('[mongodb]: Item salvo!');
+      console.log('[MongoDB]: Creating item with MongoBD');
    }
 }
 
+// Classe de estratégia para Postgres
 class Postgres extends ICrud {
    constructor() {
       super();
    }
 
    create(item) {
-      console.log('[postgres]: Item salvo!');
+      console.log('[Postgres]: Creating item with Postgres');
    }
 }
 
-class ContextStrategy {
+
+class ContextStrategy { 
    constructor(strategy) {
       this._database = strategy;
    }
 
-   create(item) {
+   create(item) {      
       return this._database.create(item);
    }
 }
 
-const mongoContext = new ContextStrategy(new MongoDB());
-mongoContext.create();
+const contextMongo = new ContextStrategy(new Mongo());
+contextMongo.create();
 
-const postgresContext = new ContextStrategy(new Postgres());
-postgresContext.create();
+const contextPostgres = new ContextStrategy(new Postgres());
+contextPostgres.create();
