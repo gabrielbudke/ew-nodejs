@@ -11,6 +11,10 @@ class ContextStrategy {
       return this._database.update(id);
    }
 
+   isConnected() {
+      return this._database.isConnected();
+   }
+
 }
 
 module.exports = ContextStrategy;

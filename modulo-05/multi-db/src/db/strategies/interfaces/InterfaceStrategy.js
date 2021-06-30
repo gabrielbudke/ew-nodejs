@@ -17,6 +17,10 @@ class InterfaceStrategy {
       throw new NotImplementedException();
    }
 
+   isConnected() {
+      throw new NotImplementedException();
+   }
+
 }
 
 module.exports = InterfaceStrategy;
