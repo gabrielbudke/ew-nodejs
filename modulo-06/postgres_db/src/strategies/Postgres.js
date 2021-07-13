@@ -11,9 +11,9 @@ class Postgres extends InterfaceStrategy {
   }
 
   isConnected() {
+    console.log("[postgres]: connected to postgres");
     return this.connection;
   }
-
 
 }
 

@@ -27,10 +27,11 @@ Esse repositório é destinado ao curso Imersão em Desenvolvimento de API minis
 
 ## :open_file_folder: Módulos
 
-- [1° Módulo - Sincronia de Funçoes](https://github.com/gabrielbudke/ew-nodejs/tree/main/modulo-01)
+- [1° Módulo - Sincronia de Funçoes](./modulo-01)
 - [2° Módulo - Manipulação de Listas](https://github.com/gabrielbudke/ew-nodejs/tree/main/modulo-02/manipulacao-de-lista)
 - [3° Módulo - Introdução a Desenvolvimento de Testes Automatizados](https://github.com/gabrielbudke/ew-nodejs/tree/main/modulo-03/testes)
 - [4° Módulo - Criando ferramentas de linha de comando - CLI](https://github.com/gabrielbudke/ew-nodejs/tree/main/modulo-04/cli)
+- [5° Módulo - Banco de Dados e Design Pattern Strategy]()
 
 ---
 Made by Gabriel Sousa

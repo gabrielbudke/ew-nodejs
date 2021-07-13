@@ -1,21 +1,21 @@
 class NotImplementedException extends Error {
   constructor() {
-    super('Method not implemented!');
+    super('Method is not implemented!');
   }
 }
 
 class InterfaceStrategy {
   constructor() { }
 
-  create(item) { 
+  create(item) {
     throw new NotImplementedException();
   }
 
-  update(id, item) { 
+  update(id, item) {
     throw new NotImplementedException();
   }
 
-  isConnected() { 
+  isConnected() {
     throw new NotImplementedException();
   }
 
