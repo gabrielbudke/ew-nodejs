@@ -2,9 +2,19 @@ image:
   file: .gitpod.Dockerfile
 tasks:
   - name: npm
-    command: echo "Rodando command da task npm"
     init: npm install npm@latest -g
-  - name: Mocha
+  - name: mocha
     init: npm install -g mocha
-  - name: Docker
-    init: docker start postgres adminer mongodb mongoclient
+  - name: docker-postgres
+    before: docker run \
+      --name postgres \
+      -e POSTGRES_USER=admin \
+      -e POSTGRES_PASSWORD=admin \
+      -e POSTGRES_DB=heroes \
+      -p 5432:5432 \
+      -d \
+      postgres
+    - name: docker-adminer
+    - name: docker-mongodb
+    - name: docker-mongoclient
+  - command: docker start postgres
