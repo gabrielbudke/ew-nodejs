@@ -2,6 +2,7 @@ image:
   file: .gitpod.Dockerfile
 tasks:
   - name: npm
+    command: echo "Rodando command da task npm"
     init: npm install npm@latest -g
   - name: Mocha
     init: npm install -g mocha
