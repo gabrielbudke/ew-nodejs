@@ -1,11 +1,11 @@
 <div align="center">   
    <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/233_Node_Js_logo-256.png" width="180px">   
    <img src="https://www.flaticon.com/svg/static/icons/svg/2091/2091625.svg" width="180px">
-   <h1>Módulo 01</h1>
+   <h1>Módulo 05</h1>
 </div>
 
 <h2 align="center">
-  Sincronia de Funções
+   Banco de Dados e Strategy
 </h2>
 
 <p align="center" >    
@@ -18,19 +18,23 @@
 
 <p align="center">
    <a href="#pushpin-info">Info</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-   <a href="#open_file_folder-conteudos">Conteúdos</a>  
+   <a href="#open_file_folder-conteudos">Conteúdos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;  
+   <a href="#open_file_folder-conteudos">Tecnologia</a>
 </p>
 
 ## :pushpin: Info
 
-Entendo os conceitos por trás do ciclo de execução do Node.JS, sobre callbacks, Promises e Async/Await.
+Criando um ambiente docker para a criação de um projeto multi-database e conhecendo o design pattern: Strategy.
 
 ## :open_file_folder: Conteúdos
 
-- [Callbacks](./callbacks)
-- [Promises](./promises)
-- [Events](./events)
-- [Async/Await](./async-await)
+- Docker
+- Design Pattern
+
+## :rocket: Tecnologia
+- [Docker](https://www.docker.com/)
+- [MongoDB](https://www.mongodb.com/pt-br)
+- [Postgres](https://www.postgresql.org/)
 
 ---
 Made by Gabriel Sousa

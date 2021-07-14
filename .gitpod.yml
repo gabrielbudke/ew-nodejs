@@ -1,5 +1,9 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - command: npm install -g mocha
-  - command: docker start postgres mongodb adminer mongoclient
+  - name: npm
+    init: npm install npm@latest -g
+  - name: Mocha
+    init: npm install -g mocha
+  - name: Docker
+    init: docker start postgres adminer mongodb mongoclient
