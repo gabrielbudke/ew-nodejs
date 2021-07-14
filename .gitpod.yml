@@ -6,15 +6,5 @@ tasks:
   - name: mocha
     init: npm install -g mocha
   - name: docker-postgres
-    before: docker run \
-      --name postgres \
-      -e POSTGRES_USER=admin \
-      -e POSTGRES_PASSWORD=admin \
-      -e POSTGRES_DB=heroes \
-      -p 5432:5432 \
-      -d \
-      postgres
-    - name: docker-adminer
-    - name: docker-mongodb
-    - name: docker-mongoclient
-  - command: docker start postgres
+    init: echo 'running docker postgres'
+    command: echo 'startinh docker postgres'
