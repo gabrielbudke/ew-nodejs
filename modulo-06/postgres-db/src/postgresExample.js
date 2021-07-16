@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes } = require("sequelize");
+const Sequelize = require("sequelize");
 
 const driver = new Sequelize("heroes", "admin", "admin", {
   host: "localhost",
@@ -10,17 +10,17 @@ const driver = new Sequelize("heroes", "admin", "admin", {
 async function main() {
   const Heroes = driver.define("heroes", {
     id: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
       required: true,
       primaryKey: true,
       autoIncrement: true
     },
     name: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       required: true
     },
     power: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       required: true
     }
   }, {
@@ -31,13 +31,16 @@ async function main() {
 
   await Heroes.sync();
 
-  await Heroes.create({
-    name: "Lanterna Verde",
-    power: "Anel"
-  });
+  // await Heroes.create({
+  //   name: "Batman",
+  //   power: "Dinheiro"
+  // });
 
-  const heroes = await Heroes.findAll({ raw: true });
-  console.table(heroes);
+  const heroes = await Heroes.findAll({
+    raw: true,
+    attributes: ["name"]
+  });
+  console.log('heroes', heroes);
 
 }
 
