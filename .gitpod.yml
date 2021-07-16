@@ -26,18 +26,11 @@ tasks:
       adminer
     command: docker start adminer
   - name: docker-mongodb
-    init: >
-      docker run 
-      --name mongodb 
-      -p 27017:27017 
-      -e MONGO_INITDB_ROOT_USERNAME=admin 
-      -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin 
-      -d 
-      mongo:4
-
-      docker exec -it mongodb 
-      mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin 
-      --eval "db.getSiblingDB('heroes').createUser({user: 'gabrielsousa', pwd: 'admin', roles: [{role: 'readWrite', db: 'heroes'}]})"
+    init: |
+      echo 'mongodb > Criando um container para o mongodb'
+      docker run --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin -d mongo:4
+      echo 'mongodb > Criando usuário para o mongodb'
+      docker exec -it mongodb mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin --eval "db.getSiblingDB('heroes').createUser({user: 'gabrielsousa', pwd: 'admin', roles: [{role: 'readWrite', db: 'heroes'}]})"
     command: docker start mongodb
   - name: docker-mongoclient
     init: >
