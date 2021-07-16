@@ -45,7 +45,6 @@ tasks:
       --eval "db.getSiblingDB('heroes').createUser({user: 'gabrielsousa', pwd: 'admin', roles: [{role: 'readWrite', db: 'heroes'}]})"
   - name: docker-mongoclient
     init: >
-      gp sync-await mongodb &&
       docker run
       --name mongoclient 
       -p 3000:3000 
