@@ -41,15 +41,12 @@ tasks:
     command: docker start mongodb
   - name: create-user-mongodb
     init: >
-      echo '>> [mongodb]: Criando usuário para o mongodb'
-
       gp sync-await mongodb &&
       docker exec -it mongodb 
       mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin 
       --eval "db.getSiblingDB('heroes').createUser({user: 'gabrielsousa', pwd: 'admin', roles: [{role: 'readWrite', db: 'heroes'}]})"
   - name: docker-mongoclient
     init: >
-      gp sync-await mongodb &&
       docker run
       --name mongoclient 
       -p 3000:3000 
