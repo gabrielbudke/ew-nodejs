@@ -40,6 +40,7 @@ tasks:
     command: docker start mongodb
   - name: create-user-mongodb
     init: >
+      gp sync-await mongodb &&
       docker exec -it mongodb 
       mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin 
       --eval "db.getSiblingDB('heroes').createUser({user: 'gabrielsousa', pwd: 'admin', roles: [{role: 'readWrite', db: 'heroes'}]})"
