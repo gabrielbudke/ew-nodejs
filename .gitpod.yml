@@ -16,3 +16,9 @@ tasks:
       -d
       postgres
     command: docker start postgres
+  - name: docker-adminer
+    command: docker start adminer
+  - name: docker-mongodb
+    command: docker start mongodb
+  - name: docker-mongoclient
+    command: docker start mongoclient
