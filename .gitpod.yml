@@ -35,8 +35,7 @@ tasks:
       -e MONGO_INITDB_ROOT_USERNAME=admin 
       -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin 
       -d 
-      mongo:4         
-      gp sync-done mongodb
+      mongo:4
     command: docker start mongodb
   - name: create-user-mongodb
     init: >
