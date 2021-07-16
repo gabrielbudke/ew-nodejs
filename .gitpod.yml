@@ -37,11 +37,7 @@ tasks:
       -d 
       mongo:4 &&
       gp sync-done mongodb
-    command: docker start mongodb && gp sync-done started-mongodb
-  - name: create-user-mongodb
-    init: >
-      gp sync-await started-mongodb &&
-      docker exec -it mongodb mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin --eval "db.getSiblingDB('heroes').createUser({user: 'gabrielsousa', pwd: 'admin', roles: [{role: 'readWrite', db: 'heroes'}]})"
+    command: docker start mongodb
   - name: docker-mongoclient
     init: >
       gp sync-await mongodb &&
@@ -50,5 +46,10 @@ tasks:
       -p 3000:3000 
       --link mongodb:mongodb 
       -d 
-      mongoclient/mongoclient
+      mongoclient/mongoclient &&
+      gp sync-done mongoclient
     command: docker start mongoclient
+  - name: create-user-mongodb
+    init: >
+      gp sync-await mongoclient &&
+      docker exec -it mongodb mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin --eval "db.getSiblingDB('heroes').createUser({user: 'gabrielsousa', pwd: 'admin', roles: [{role: 'readWrite', db: 'heroes'}]})"
