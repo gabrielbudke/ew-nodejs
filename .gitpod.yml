@@ -37,13 +37,11 @@ tasks:
       -d 
       mongo:4 &&
       gp sync-done mongodb
-    command: docker start mongodb
+    command: docker start mongodb && gp sync-done started-mongodb
   - name: create-user-mongodb
     init: >
-      gp sync-await mongodb &&
-      docker exec -it mongodb 
-      mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin 
-      --eval "db.getSiblingDB('heroes').createUser({user: 'gabrielsousa', pwd: 'admin', roles: [{role: 'readWrite', db: 'heroes'}]})"
+      gp sync-await started-mongodb &&
+      docker exec -it mongodb mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin --eval "db.getSiblingDB('heroes').createUser({user: 'gabrielsousa', pwd: 'admin', roles: [{role: 'readWrite', db: 'heroes'}]})"
   - name: docker-mongoclient
     init: >
       gp sync-await mongodb &&
