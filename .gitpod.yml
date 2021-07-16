@@ -28,15 +28,28 @@ tasks:
       adminer
     command: docker start adminer
   - name: docker-mongodb
-    init: |
-      echo '>> [mongodb]: Criando um container para o mongodb'
-      docker run --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin -d mongo:4
-      docker start mongodb
-      echo '>> [mongodb]: Criando usuário para o mongodb'
-      docker exec -it mongodb mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin --eval "db.getSiblingDB('heroes').createUser({user: 'gabrielsousa', pwd: 'admin', roles: [{role: 'readWrite', db: 'heroes'}]})"
+    init: >
+      echo '>> [mongodb]: Criando um container para o mongodb' &&
+      docker run 
+      --name mongodb 
+      -p 27017:27017 
+      -e MONGO_INITDB_ROOT_USERNAME=admin 
+      -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin 
+      -d 
+      mongo:4         
+      gp sync-done mongodb
     command: docker start mongodb
+  - name: create-user-mongodb
+    init: >
+      echo '>> [mongodb]: Criando usuário para o mongodb'
+
+      gp sync-await mongodb &&
+      docker exec -it mongodb 
+      mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin 
+      --eval "db.getSiblingDB('heroes').createUser({user: 'gabrielsousa', pwd: 'admin', roles: [{role: 'readWrite', db: 'heroes'}]})"
   - name: docker-mongoclient
     init: >
+      gp sync-await mongodb &&
       docker run
       --name mongoclient 
       -p 3000:3000 
